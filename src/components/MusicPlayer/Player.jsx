@@ -11,7 +11,6 @@ const Player = ({
   onLoadedData,
   repeat,
 }) => {
-  console.log(activeSong, "song");
   const ref = useRef(null);
   // eslint-disable-next-line no-unused-expressions
   if (ref.current) {
