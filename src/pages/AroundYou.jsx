@@ -9,7 +9,9 @@ const AroundYou = () => {
   const [countryCode, setCountryCode] = useState("");
   const [loading, setLoading] = useState(true);
   const { activeSong, isPlaying } = useSelector((state) => state.player);
-  const { data, isFetching, error } = useGetSongsByCountryQuery(countryCode);
+  const { data, isFetching, error } = useGetSongsByCountryQuery({
+    countryCode,
+  });
 
   useEffect(() => {
     axios
@@ -20,7 +22,7 @@ const AroundYou = () => {
         const country = res?.data?.location?.country;
         if (countryCodes.includes(country)) {
           setCountryCode(country);
-        } else setCountryCode("RU");
+        } else setCountryCode("US");
       })
       .catch((err) => {
         console.log(err);
